@@ -1,156 +1,165 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Tiền Mua Đồ</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 10px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 100%;
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 20px;
-            text-align: center;
-            color: #333;
-            margin: 0 0 15px 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-        th, td {
-            padding: 5px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #28a745;
-            color: white;
-        }
-        input[type="date"], input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-        .total {
-            margin-top: 15px;
-            text-align: right;
-            font-size: 18px;
-            font-weight: bold;
-            color: #dc3545;
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ĐỒNG HỒ ĐIỆN ONLINE</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#0f172a;
+    font-family:Arial;
+    color:white;
+    text-align:center;
+}
+
+.header{
+    background:#1e293b;
+    padding:20px;
+    font-size:35px;
+    font-weight:bold;
+}
+
+.container{
+    padding:20px;
+}
+
+.box{
+    background:#1e293b;
+    margin:15px auto;
+    padding:25px;
+    border-radius:20px;
+    width:90%;
+    max-width:400px;
+    box-shadow:0 0 15px #000;
+}
+
+.title{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.value{
+    font-size:45px;
+    font-weight:bold;
+}
+
+.money{
+    background:#16a34a;
+}
+
+.reset{
+    background:red;
+    color:white;
+    border:none;
+    padding:20px;
+    font-size:25px;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>Quản Lý Tiền Mua Đồ Hàng Ngày</h1>
-        <table id="transactionTable">
-            <tr>
-                <th>Ngày</th>
-                <th>Nội dung mua đồ</th>
-                <th>Số tiền (VND)</th>
-            </tr>
-            <!-- 30 hàng để nhập dữ liệu -->
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-            <tr><td><input type="date" class="date"></td><td><input type="text" class="item" placeholder="Nhập món đồ"></td><td><input type="number" class="amount" placeholder="Nhập số tiền" oninput="updateData()"></td></tr>
-        </table>
-        <div class="total">
-            Tổng tiền: <span id="total">0</span> VND
-        </div>
-    </div>
 
-    <script>
-        // Load dữ liệu từ localStorage khi trang mở
-        window.onload = function() {
-            const savedData = JSON.parse(localStorage.getItem('transactions')) || [];
-            const dates = document.getElementsByClassName('date');
-            const items = document.getElementsByClassName('item');
-            const amounts = document.getElementsByClassName('amount');
+<div class="header">
+ĐỒNG HỒ ĐIỆN ONLINE
+</div>
 
-            for (let i = 0; i < savedData.length && i < 30; i++) {
-                dates[i].value = savedData[i].date;
-                items[i].value = savedData[i].item;
-                amounts[i].value = savedData[i].amount;
-            }
-            calculateTotal();
-        };
+<div class="container">
 
-        // Cập nhật dữ liệu và lưu vào localStorage
-        function updateData() {
-            const dates = document.getElementsByClassName('date');
-            const items = document.getElementsByClassName('item');
-            const amounts = document.getElementsByClassName('amount');
-            const transactions = [];
+<div class="box">
+<div class="title">Điện áp</div>
+<div class="value" id="voltage">0</div>
+</div>
 
-            for (let i = 0; i < 30; i++) {
-                const date = dates[i].value;
-                const item = items[i].value;
-                const amount = amounts[i].value;
-                if (date || item || amount) {
-                    transactions.push({ date, item, amount: amount ? parseFloat(amount) : 0 });
-                }
-            }
-            localStorage.setItem('transactions', JSON.stringify(transactions));
-            calculateTotal();
-        }
+<div class="box">
+<div class="title">Dòng điện</div>
+<div class="value" id="current">0</div>
+</div>
 
-        // Tính tổng tự động
-        function calculateTotal() {
-            const amounts = document.getElementsByClassName('amount');
-            let total = 0;
-            for (let i = 0; i < amounts.length; i++) {
-                const value = parseFloat(amounts[i].value) || 0;
-                total += value;
-            }
-            document.getElementById('total').textContent = total.toLocaleString();
-        }
+<div class="box">
+<div class="title">Công suất</div>
+<div class="value" id="power">0</div>
+</div>
 
-        // Gắn sự kiện oninput cho các ô ngày và nội dung
-        const dates = document.getElementsByClassName('date');
-        const items = document.getElementsByClassName('item');
-        for (let i = 0; i < 30; i++) {
-            dates[i].oninput = updateData;
-            items[i].oninput = updateData;
-        }
-    </script>
+<div class="box">
+<div class="title">Điện năng</div>
+<div class="value" id="energy">0</div>
+</div>
+
+<div class="box money">
+<div class="title">Tiền điện</div>
+<div class="value" id="money">0</div>
+</div>
+
+<button onclick="resetEnergy()" class="reset">
+RESET ĐIỆN NĂNG
+</button>
+
+</div>
+
+<script>
+
+const firebaseURL =
+"https://mayvl-bf237-default-rtdb.asia-southeast1.firebasedatabase.app/PZEM.json";
+
+async function loadData()
+{
+    try{
+
+        const response =
+        await fetch(firebaseURL);
+
+        const data =
+        await response.json();
+
+        document.getElementById("voltage").innerHTML =
+        data.Voltage + " V";
+
+        document.getElementById("current").innerHTML =
+        data.Current + " A";
+
+        document.getElementById("power").innerHTML =
+        data.Power + " W";
+
+        document.getElementById("energy").innerHTML =
+        data.Energy + " kWh";
+
+        document.getElementById("money").innerHTML =
+        parseInt(data.Money).toLocaleString() + " đ";
+
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+
+async function resetEnergy()
+{
+    await fetch(
+    "https://mayvl-bf237-default-rtdb.asia-southeast1.firebasedatabase.app/PZEM/Reset.json",
+    {
+        method:"PUT",
+        body:"1"
+    });
+
+    alert("Đã gửi lệnh reset");
+}
+
+loadData();
+
+setInterval(loadData, 3000);
+
+</script>
+
 </body>
 </html>
